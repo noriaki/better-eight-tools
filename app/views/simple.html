@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Better Eight Tools (for Normal user)</title>
+    <link rel="stylesheet" href="../css/libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/simple.css">
+  </head>
+  <body tabindex="1">
+    <div class="container">
+      <button type="button" class="close" aria-hidden="true" aria-label="Close">&times;</button>
+      <p class="text-right">
+	<span class="label label-default">
+	  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  Normal User
+	</span>
+      </p>
+      <div class="well">
+	<h4>データダウンロード Lite版</h4>
+	<section>
+	  <p class="text-muted">
+	    画面に表示されているデータのみダウンロード可能
+	  </p>
+	  <ul class="list-inline">
+	    <li data-toggle="tooltip" data-placement="bottom" title="[Eightプレミアム限定] CSV">
+	      <button id="export_original" type="button" class="btn btn-primary disabled">
+		Original CSV</button></li>
+	    <li>
+	      <button id="export_csv_plain" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="[Lite版] CSV">
+		Plain CSV</button></li>
+	    <li data-toggle="tooltip" data-placement="bottom" title="[Eightプレミアム限定] Gmailインポート用CSV">
+	      <button id="export_csv_gmail" type="button" class="btn btn-primary disabled">
+		Gmail CSV</button></li>
+	    <li data-toggle="tooltip" data-placement="bottom" title="[Eightプレミアム限定] iPhone(iCloud), Outlook等へインポート可能な形式">
+	      <button id="export_vcard" type="button" class="btn btn-primary disabled">
+		vCard</button></li>
+	  </ul>
+	</section>
+      </div>
+      <div class="panel panel-warning">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Eightプレミアム登録</h3>
+	</div>
+	<div class="panel-body">
+	  <p>
+	    Eight公式プレミアムユーザは、名刺全件がダウンロードでき、以下の項目がダウンロードデータに含まれるようになります。
+	  </p>
+	  <p>
+	    <span class="label label-default">氏名</span>
+	    <span class="label label-default">会社名</span>
+	    <span class="label label-default">E-mail</span>
+	    <span class="label label-default">部署名</span>
+	    <span class="label label-default">役職</span>
+	    <span class="label label-default">郵便番号</span>
+	    <span class="label label-default">住所</span>
+	    <span class="label label-default">TEL会社</span>
+	    <span class="label label-default">TEL部門</span>
+	    <span class="label label-default">TEL直通</span>
+	    <span class="label label-default">FAX</span>
+	    <span class="label label-default">携帯電話</span>
+	    <span class="label label-default">URL</span>
+	    <span class="label label-default">名刺交換日（yyyy/mm/dd）</span>
+	  </p>
+	  <p>
+	    Eightプレミアムに登録すると、このChrome拡張も自動でアップグレードされ、各項目が追加されたそれぞれのファイル形式のダウンロードが可能になります。
+	  </p>
+	  <button id="getpremium" type="button" class="btn btn-success btn-block">
+	    Eightプレミアム登録はこちら</button>
+	  <small class="text-muted">※「Eightプレミアム」は公式に提供されている有料サービスです<br>
+	    ※このChrome拡張「Better Eight Tools」は無料です</small>
+	</div>
+      </div>
+    </div>
+    <script src="../js/libs/jquery/jquery-2.1.3.min.js"></script>
+    <script src="../js/libs/google/analytics.js"></script>
+    <script src="../js/libs/csv/csv.min.js"></script>
+    <script src="../js/libs/bootstrap/tooltip.js"></script>
+    <script src="../js/libs/util.js"></script>
+    <script src="../js/models/data-loader.js"></script>
+    <script src="../js/models/card.js"></script>
+    <script src="../js/controllers/datafile.js"></script>
+  </body>
+</html>
