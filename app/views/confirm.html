@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Confirm to use better Eight tools</title>
+    <link rel="stylesheet" href="../css/libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/confirm.css">
+  </head>
+  <body>
+    <div id="terms" class="container">
+      <h1>Better Eight Tools ご利用にあたって</h1>
+      <div class="well">
+	<dl>
+	  <dt>非公式ツール</dt>
+	  <dd>Better Eight ToolsはEightおよびSansan株式会社とは関係の無い個人が開発、配布しているツールです</dd>
+	  <dt>名刺情報は外部へ送信しません</dt>
+	  <dd>データはブラウザ上で全て処理され外部サーバ等には送信していません
+	    <ul>
+	      <li>ただし利用状況を把握するため名刺情報や個人を特定できない範囲でアクセス統計データを取得しています</li>
+	      <li>また、アクセス情報は統計処理されたものをブログ等で利用する場合があります</li>
+	    </ul>
+	  </dd>
+	  <del>
+	  <dt>Eight上のデータ操作</dt>
+	  <dd>Eightの名刺データを追加・変更・削除する機能があり、十分気をつけて開発していますが処理によるデータの不整合や処理によるデータ破壊などが発生しない保証はありません</dd>
+	  </del><ins>現在は未実装</ins>
+	  <dt>免責事項</dt>
+	  <dd>このツールは有用だと思われますが、作者はいかなる責任も負いません</dd>
+	</dl>
+      </div>
+      <p>以上のご注意事項に同意される場合のみお使いいただけます。</p>
+      <p>
+	<button type="button" id="confirm" class="btn btn-primary">
+	  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>同意
+	</button>
+	<button type="button" id="cancel" class="btn btn-default">キャンセル</button>
+      </p>
+    </div>
+    <script src="../js/libs/jquery/jquery-2.1.3.min.js"></script>
+    <script src="../js/libs/google/analytics.js"></script>
+    <script src="../js/controllers/check-confirm.js"></script>
+  </body>
+</html>
