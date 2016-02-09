@@ -1,5 +1,6 @@
 import gulp from 'gulp'
 import haml from 'gulp-haml'
+import prettify from 'gulp-prettify'
 import conf from '../config'
 
 gulp.task('haml', function() {
@@ -12,5 +13,6 @@ gulp.task('haml', function() {
 	}
       }
     }))
+    .pipe(prettify())
     .pipe(gulp.dest(config.dest))
 })

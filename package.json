@@ -5,10 +5,11 @@
   "main": "app/index.js",
   "scripts": {
     "test": "karma start",
-    "clean": "rm -r ./build",
+    "clean": "rm -r ./build && rm -r ./tmp/build",
     "build": "gulp build",
     "build:haml": "gulp haml",
     "prebuild": "npm run clean",
+    "postbuild": "npm run copy",
     "copy": "gulp copy"
   },
   "repository": {
@@ -33,6 +34,7 @@
     "babel-preset-es2015": "^6.5.0",
     "gulp": "^3.9.1",
     "gulp-haml": "^0.1.6",
+    "gulp-prettify": "^0.4.0",
     "jasmine": "^2.4.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",

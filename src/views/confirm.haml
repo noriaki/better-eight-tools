@@ -1,0 +1,35 @@
+!!! 5
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    %title Confirm to use better Eight tools
+    %link{href: "../css/libs/bootstrap/bootstrap.min.css", rel: "stylesheet"}/
+    %link{href: "../css/base.css", rel: "stylesheet"}/
+    %link{href: "../css/confirm.css", rel: "stylesheet"}/
+  %body
+    #terms.container
+      %h1 Better Eight Tools ご利用にあたって
+      .well
+        %dl
+          %dt 非公式ツール
+          %dd Better Eight ToolsはEightおよびSansan株式会社とは関係の無い個人が開発、配布しているツールです
+          %dt 名刺情報は外部へ送信しません
+          %dd
+            データはブラウザ上で全て処理され外部サーバ等には送信していません
+            %ul
+              %li ただし利用状況を把握するため名刺情報や個人を特定できない範囲でアクセス統計データを取得しています
+              %li また、アクセス情報は統計処理されたものをブログ等で利用する場合があります
+          %del
+            %dt Eight上のデータ操作
+            %dd Eightの名刺データを追加・変更・削除する機能があり、十分気をつけて開発していますが処理によるデータの不整合や処理によるデータ破壊などが発生しない保証はありません
+          %ins 現在は未実装
+          %dt 免責事項
+          %dd このツールは有用だと思われますが、作者はいかなる責任も負いません
+      %p 以上のご注意事項に同意される場合のみお使いいただけます。
+      %p
+        %button#confirm.btn.btn-primary{type: "button"}
+          %span.glyphicon.glyphicon-ok 同意
+        %button#cancel.btn.btn-default{type: "button"} キャンセル
+    %script{src: "../js/libs/jquery/jquery-2.1.3.min.js"}
+    %script{src: "../js/libs/google/analytics.js"}
+    %script{src: "../js/controllers/check-confirm.js"}
