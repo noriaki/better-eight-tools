@@ -3,7 +3,7 @@ import haml from 'gulp-haml'
 import prettify from 'gulp-prettify'
 import conf from '../config'
 
-gulp.task('haml', function() {
+gulp.task('build:haml', function() {
   const config = conf.haml
   gulp.src(config.src)
     .pipe(haml({

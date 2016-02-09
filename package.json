@@ -5,10 +5,12 @@
   "main": "app/index.js",
   "scripts": {
     "test": "karma start",
-    "clean": "rm -r ./build && rm -r ./tmp/build",
+    "clean": "gulp clean",
+    "clean:build": "gulp clean:build",
+    "clean:tmp": "gulp clean:tmp",
     "build": "gulp build",
     "build:scss": "",
-    "build:haml": "gulp haml",
+    "build:haml": "gulp build:haml",
     "prebuild": "npm run clean",
     "postbuild": "npm run copy",
     "copy": "gulp copy",
@@ -34,6 +36,7 @@
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.1",
     "babel-preset-es2015": "^6.5.0",
+    "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-haml": "^0.1.6",
     "gulp-prettify": "^0.4.0",
@@ -41,7 +44,8 @@
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
     "karma-jasmine": "^0.3.7",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "vinyl-paths": "^2.1.0"
   },
   "babel": {
     "presets": [

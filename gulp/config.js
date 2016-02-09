@@ -11,6 +11,15 @@ module.exports = {
   src: src_dir,
   tmp: tmp_dir,
 
+  clean: {
+    build: {
+      src: dest_dir + '/*'
+    },
+    tmp: {
+      src: tmp_dir + '/build/*'
+    }
+  },
+
   copy: {
     compiled: {
       src: [
@@ -19,6 +28,7 @@ module.exports = {
       dest: dest_dir
     },
     assets: {
+      base: src_dir,
       src: [
 	src_dir + '/icons/**/*',
 	src_dir + '/images/**/*',
@@ -31,6 +41,6 @@ module.exports = {
   haml: {
     helper: view_helper,
     src: src_dir + '/views/**/!(_)*.haml',
-    dest: tmp_dir + '/build/'
+    dest: tmp_dir + '/build/html/'
   }
 }
