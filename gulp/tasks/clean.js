@@ -6,7 +6,7 @@ import conf from '../config'
 gulp.task('clean', ['clean:build', 'clean:tmp'])
 
 const clean = (paths) => {
-  gulp.src(paths)
+  gulp.src(paths, { base: conf.clean.src_base })
     .pipe(vinyl_paths(del))
 }
 
