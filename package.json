@@ -7,10 +7,12 @@
     "test": "karma start",
     "clean": "rm -r ./build && rm -r ./tmp/build",
     "build": "gulp build",
+    "build:scss": "",
     "build:haml": "gulp haml",
     "prebuild": "npm run clean",
     "postbuild": "npm run copy",
-    "copy": "gulp copy"
+    "copy": "gulp copy",
+    "copy:assets": "gulp copy:assets"
   },
   "repository": {
     "type": "git",
