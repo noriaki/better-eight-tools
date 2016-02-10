@@ -34,7 +34,7 @@ module.exports = {
       dest: dest_dir 
     },
     assets: {
-      base: src_base_dir,
+      src_base: src_base_dir,
       src: [
 	src_dir + '/icons/**/*',
 	src_dir + '/images/**/*',
@@ -48,5 +48,11 @@ module.exports = {
     helper: view_helper,
     src: src_dir + '/views/**/!(_)*.haml',
     dest: tmp_dir + '/build/html/'
+  },
+
+  js: {
+    src: src_dir + '/js/**/!(_)*.js',
+    dest: tmp_dir + '/build/js/',
+    suffix: '.bundle'
   }
 }

@@ -1,3 +1,10 @@
+'use strict'
+
 import gulp from 'gulp'
 
-gulp.task('build', ['build:haml'])
+/*
+ * replace npm run build
+ * (because run-script with pre*build*, post*build*)
+ */
+//gulp.task('build', ['build:js', 'build:haml'])
+

@@ -11,6 +11,6 @@ gulp.task('copy:compiled', function() {
 
 gulp.task('copy:assets', function() {
   let config = conf.copy.assets
-  gulp.src(config.src, { base: config.base })
+  gulp.src(config.src, { base: config.src_base })
     .pipe(gulp.dest(config.dest))
 })

@@ -1,3 +1,5 @@
+'use strict'
+
 import gulp from 'gulp'
 import del from 'del'
 import vinyl_paths from 'vinyl-paths'
