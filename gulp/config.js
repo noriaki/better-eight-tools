@@ -50,6 +50,11 @@ module.exports = {
     dest: tmp_dir + '/build/html/'
   },
 
+  scss: {
+    src: src_dir + '/scss/**/!(_)*.scss',
+    dest: tmp_dir + '/build/css/'
+  },
+
   js: {
     src: src_dir + '/js/**/!(_)*.js',
     dest: tmp_dir + '/build/js/',

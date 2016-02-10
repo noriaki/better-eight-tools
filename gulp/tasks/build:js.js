@@ -23,10 +23,10 @@ gulp.task('build:js', function() {
 
       return new Promise((resolve) => {
 	
-	let filename = path.basename(uri, '.js') + config.suffix + '.js'
+	let output_filename = path.basename(uri, '.js') + config.suffix + '.js'
 	let bundled_stream = through()
 	bundled_stream
-	  .pipe(source(filename))
+	  .pipe(source(output_filename))
 	  .pipe(buffer())
 	  .pipe(sourcemaps.init({ loadMaps: true }))
 	  .pipe(sourcemaps.write('./'))
