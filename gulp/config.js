@@ -5,6 +5,7 @@ const src_dir = src_base_dir;
 const tmp_dir = './tmp';
 
 import view_helper from '../src/haml/helper';
+import path from 'path';
 
 module.exports = {
   dest: dest_dir,
@@ -70,5 +71,11 @@ module.exports = {
       './gulpfile*.js',
       './gulp/**/*.js'
     ]
+  },
+
+  pack: {
+    src: dest_dir + '/*',
+    filename: path.basename(dest_dir) + '.zip',
+    dest: dest_base_dir
   }
 };
