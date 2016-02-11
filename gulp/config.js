@@ -1,5 +1,3 @@
-'use strict'
-
 const dest_base_dir = './build'
 const src_base_dir = './src'
 const dest_dir = dest_base_dir + '/release'
@@ -29,16 +27,16 @@ module.exports = {
   copy: {
     compiled: {
       src: [
-	tmp_dir + '/build/**/*'
+        tmp_dir + '/build/**/*'
       ],
-      dest: dest_dir 
+      dest: dest_dir
     },
     assets: {
       src_base: src_base_dir,
       src: [
-	src_dir + '/icons/**/*',
-	src_dir + '/images/**/*',
-	src_dir + '/manifest.json'
+        src_dir + '/icons/**/*',
+        src_dir + '/images/**/*',
+        src_dir + '/manifest.json'
       ],
       dest: dest_dir
     }
@@ -56,8 +54,18 @@ module.exports = {
   },
 
   js: {
-    src: src_dir + '/js/**/!(_)*.js',
+    src: src_dir + '/js/**/!(_)*.jsx',
     dest: tmp_dir + '/build/js/',
+    src_ext: '.jsx',
+    dest_ext: '.js',
     suffix: '.bundle'
+  },
+
+  lint: {
+    src: [
+      src_dir + '/js/**/*.jsx?',
+      './gulpfile*.js',
+      './gulp/**/*.js'
+    ]
   }
 }

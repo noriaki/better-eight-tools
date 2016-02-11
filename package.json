@@ -17,7 +17,8 @@
     "copy": "gulp copy",
     "copy:assets": "gulp copy:assets",
     "copy:compiled": "gulp copy:compiled",
-    "npm:sync": "gulp npm:sync"
+    "npm:sync": "gulp npm:sync",
+    "lint": "gulp lint"
   },
   "repository": {
     "type": "git",

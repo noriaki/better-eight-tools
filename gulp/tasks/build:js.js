@@ -1,5 +1,3 @@
-'use strict'
-
 import gulp          from 'gulp'
 import globby        from 'globby'
 import _             from 'lodash'
@@ -19,28 +17,30 @@ const config = conf.js
 
 gulp.task('build:js', function() {
   globby(config.src).then((entries) => {
-    const promises = _.map(entries, uri => {
+    const promises = _.map(entries, (uri) => {
 
       return new Promise((resolve) => {
-	
-	let output_filename = path.basename(uri, '.js') + config.suffix + '.js'
-	let bundled_stream = through()
-	bundled_stream
-	  .pipe(source(output_filename))
-	  .pipe(buffer())
-	  .pipe(sourcemaps.init({ loadMaps: true }))
-	  .pipe(sourcemaps.write('./'))
-	  .pipe(gulp.dest(config.dest))
-	  .on('end', resolve)
 
-	browserify({
-	  entries: [uri],
-	  debug: true,
-	  transform: [babelify, uglifyify]
-	})
-	  .bundle()
-	  .on('error', handle_errors)
-	  .pipe(bundled_stream)
+        const output_filename = [
+          path.basename(uri, config.src_ext), config.suffix, config.dest_ext
+        ].join('')
+        const bundled_stream = through()
+        bundled_stream
+          .pipe(source(output_filename))
+          .pipe(buffer())
+          .pipe(sourcemaps.init({ loadMaps: true }))
+          .pipe(sourcemaps.write('./'))
+          .pipe(gulp.dest(config.dest))
+          .on('end', resolve)
+
+        browserify({
+          entries: [uri],
+          debug: true,
+          transform: [babelify, uglifyify]
+        })
+          .bundle()
+          .on('error', handle_errors)
+          .pipe(bundled_stream)
       })
 
     })
