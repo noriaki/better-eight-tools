@@ -1,10 +1,10 @@
-const dest_base_dir = './build'
-const src_base_dir = './src'
-const dest_dir = dest_base_dir + '/release'
-const src_dir = src_base_dir
-const tmp_dir = './tmp'
+const dest_base_dir = './build';
+const src_base_dir = './src';
+const dest_dir = dest_base_dir + '/release';
+const src_dir = src_base_dir;
+const tmp_dir = './tmp';
 
-import view_helper from '../src/views/helper'
+import view_helper from '../src/views/helper';
 
 module.exports = {
   dest: dest_dir,
@@ -54,7 +54,7 @@ module.exports = {
   },
 
   js: {
-    src: src_dir + '/js/**/!(_)*.jsx',
+    src: src_dir + '/jsx/**/!(_)*.jsx',
     dest: tmp_dir + '/build/js/',
     src_ext: '.jsx',
     dest_ext: '.js',
@@ -63,9 +63,9 @@ module.exports = {
 
   lint: {
     src: [
-      src_dir + '/js/**/*.jsx?',
+      src_dir + '/jsx/**/*.js?(x)',
       './gulpfile*.js',
       './gulp/**/*.js'
     ]
   }
-}
+};

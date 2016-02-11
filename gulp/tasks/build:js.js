@@ -1,19 +1,19 @@
-import gulp          from 'gulp'
-import globby        from 'globby'
-import _             from 'lodash'
-import path          from 'path'
-import co            from 'co'
-import through       from 'through2'
-import source        from 'vinyl-source-stream'
-import buffer        from 'vinyl-buffer'
-import browserify    from 'browserify'
-import babelify      from 'babelify'
-import uglifyify     from 'uglifyify'
-import sourcemaps    from 'gulp-sourcemaps'
-import handle_errors from '../error_handler'
-import conf          from '../config'
+import gulp          from 'gulp';
+import globby        from 'globby';
+import _             from 'lodash';
+import path          from 'path';
+import co            from 'co';
+import through       from 'through2';
+import source        from 'vinyl-source-stream';
+import buffer        from 'vinyl-buffer';
+import browserify    from 'browserify';
+import babelify      from 'babelify';
+import uglifyify     from 'uglifyify';
+import sourcemaps    from 'gulp-sourcemaps';
+import handle_errors from '../error_handler';
+import conf          from '../config';
 
-const config = conf.js
+const config = conf.js;
 
 gulp.task('build:js', function() {
   globby(config.src).then((entries) => {
@@ -23,15 +23,15 @@ gulp.task('build:js', function() {
 
         const output_filename = [
           path.basename(uri, config.src_ext), config.suffix, config.dest_ext
-        ].join('')
-        const bundled_stream = through()
+        ].join('');
+        const bundled_stream = through();
         bundled_stream
           .pipe(source(output_filename))
           .pipe(buffer())
           .pipe(sourcemaps.init({ loadMaps: true }))
           .pipe(sourcemaps.write('./'))
           .pipe(gulp.dest(config.dest))
-          .on('end', resolve)
+          .on('end', resolve);
 
         browserify({
           entries: [uri],
@@ -40,12 +40,13 @@ gulp.task('build:js', function() {
         })
           .bundle()
           .on('error', handle_errors)
-          .pipe(bundled_stream)
-      })
+          .pipe(bundled_stream);
+      });
 
-    })
+    });
 
-    co(function*() { yield promises }).catch((err) => {
-      console.error(err.stack)
-    }) })
-})
+    co(function*() { yield promises; }).catch((err) => {
+      console.error(err.stack);
+    });
+  });
+});
