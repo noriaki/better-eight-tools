@@ -5,7 +5,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import conf       from '../config';
 
 gulp.task('build:css', function() {
-  const config = conf.scss;
+  const config = conf.css;
   gulp.src(config.src)
     .pipe(plumber())
     .pipe(sourcemaps.init())

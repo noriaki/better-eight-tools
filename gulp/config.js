@@ -4,7 +4,7 @@ const dest_dir = dest_base_dir + '/release';
 const src_dir = src_base_dir;
 const tmp_dir = './tmp';
 
-import view_helper from '../src/views/helper';
+import view_helper from '../src/haml/helper';
 
 module.exports = {
   dest: dest_dir,
@@ -42,20 +42,23 @@ module.exports = {
     }
   },
 
-  haml: {
+  html: {
     helper: view_helper,
-    src: src_dir + '/views/**/!(_)*.haml',
-    dest: tmp_dir + '/build/html/'
+    src: src_dir + '/haml/**/!(_|.)*.haml',
+    dest: tmp_dir + '/build/html/',
+    watch_options: [src_dir, '/haml/', ' --ignoreDotFiles=true'].join('')
   },
 
-  scss: {
-    src: src_dir + '/scss/**/!(_)*.scss',
-    dest: tmp_dir + '/build/css/'
+  css: {
+    src: src_dir + '/scss/**/!(_|.)*.scss',
+    dest: tmp_dir + '/build/css/',
+    watch_options: [src_dir, '/scss/', ' --ignoreDotFiles=true'].join('')
   },
 
   js: {
-    src: src_dir + '/jsx/**/!(_)*.jsx',
+    src: src_dir + '/jsx/**/!(_|.)*.jsx',
     dest: tmp_dir + '/build/js/',
+    watch_options: [src_dir, '/jsx/', ' --ignoreDotFiles=true'].join(''),
     src_ext: '.jsx',
     dest_ext: '.js',
     suffix: '.bundle'

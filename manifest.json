@@ -35,15 +35,15 @@
   "content_scripts": [
     {
       "matches": [
-  "https://8card.net/myhome",
-  "https://8card.net/myhome/people",
-  "https://8card.net/export/*"
+        "https://8card.net/myhome",
+        "https://8card.net/myhome/people",
+        "https://8card.net/export/*"
       ],
       "exclude_matches": [],
       "css": [],
       "js": [
-  "app/js/libs/jquery/jquery-2.1.3.min.js",
-  "app/js/content_scripts/init.js"
+        "app/js/libs/jquery/jquery-2.1.3.min.js",
+        "app/js/content_scripts/init.js"
       ]
     }
   ],

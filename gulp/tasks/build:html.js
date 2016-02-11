@@ -1,11 +1,11 @@
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import haml from 'gulp-haml';
+import gulp     from 'gulp';
+import plumber  from 'gulp-plumber';
+import haml     from 'gulp-haml';
 import prettify from 'gulp-prettify';
-import conf from '../config';
+import conf     from '../config';
 
 gulp.task('build:html', function() {
-  const config = conf.haml;
+  const config = conf.html;
   gulp.src(config.src)
     .pipe(plumber())
     .pipe(haml({
