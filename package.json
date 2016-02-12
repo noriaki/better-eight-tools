@@ -17,13 +17,14 @@
     "watch:css": "watch 'npm run build:css' `babel-node -pe 'require(\"./gulp/config\").css.watch_options'`",
     "build:html": "gulp build:html",
     "watch:html": "watch 'npm run build:html' `babel-node -pe 'require(\"./gulp/config\").html.watch_options'`",
-    "build": "parallelshell 'npm run build:js' 'npm run build:css' 'npm run build:html'",
+    "build:assets": "gulp build:assets",
+    "watch:assets": "watch 'npm run build:assets' `babel-node -pe 'require(\"./gulp/config\").assets.watch_options'`",
+    "build": "parallelshell 'npm run build:js' 'npm run build:css' 'npm run build:html' 'npm run build:assets'",
     "prebuild": "npm run clean",
     "postbuild": "echo 'todo: npm run test'",
-    "build:watch": "parallelshell 'npm run watch:js' 'npm run watch:css' 'npm run watch:html'",
-    "copy": "parallelshell 'npm run copy:assets' 'npm run copy:compiled'",
-    "copy:assets": "gulp copy:assets",
-    "copy:compiled": "gulp copy:compiled",
+    "build:watch": "parallelshell 'npm run watch:js' 'npm run watch:css' 'npm run watch:html' 'npm run watch:assets'",
+    "prebuild:watch": "npm run clean",
+    "copy": "gulp copy",
     "release": "npm run copy",
     "postrelease": "npm run pack",
     "pack": "gulp pack",
@@ -54,6 +55,7 @@
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "co": "^4.6.0",
+    "cpx": "^1.2.1",
     "del": "^2.2.0",
     "eslint": "^1.10.3",
     "glob": "^6.0.4",
@@ -83,7 +85,7 @@
     "vinyl-paths": "^2.1.0",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0",
-    "watch": "^0.17.1"
+    "watch": "rgherk/watch"
   },
   "babel": {
     "presets": [

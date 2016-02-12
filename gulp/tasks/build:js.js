@@ -1,17 +1,17 @@
-import gulp          from 'gulp';
-import globby        from 'globby';
-import _             from 'lodash';
-import path          from 'path';
-import co            from 'co';
-import through       from 'through2';
-import source        from 'vinyl-source-stream';
-import buffer        from 'vinyl-buffer';
-import browserify    from 'browserify';
-import babelify      from 'babelify';
-import uglifyify     from 'uglifyify';
-import sourcemaps    from 'gulp-sourcemaps';
-import handle_errors from '../error_handler';
-import conf          from '../config';
+import gulp         from 'gulp';
+import globby       from 'globby';
+import _            from 'lodash';
+import path         from 'path';
+import co           from 'co';
+import through      from 'through2';
+import source       from 'vinyl-source-stream';
+import buffer       from 'vinyl-buffer';
+import browserify   from 'browserify';
+import babelify     from 'babelify';
+import uglifyify    from 'uglifyify';
+import sourcemaps   from 'gulp-sourcemaps';
+import * as handler from '../handler';
+import conf         from '../config';
 
 const config = conf.js;
 
@@ -31,6 +31,7 @@ gulp.task('build:js', function() {
           .pipe(sourcemaps.init({ loadMaps: true }))
           .pipe(sourcemaps.write('./'))
           .pipe(gulp.dest(config.dest))
+          //.pipe(handler.success({ title: 'Gulp Build JS' }))
           .on('end', resolve);
 
         browserify({
@@ -39,7 +40,7 @@ gulp.task('build:js', function() {
           transform: [babelify, uglifyify]
         })
           .bundle()
-          .on('error', handle_errors)
+          .on('error', handler.error)
           .pipe(bundled_stream);
       });
 

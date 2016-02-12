@@ -4,8 +4,9 @@ const dest_dir = dest_base_dir + '/release';
 const src_dir = src_base_dir;
 const tmp_dir = './tmp';
 
+import _           from 'lodash';
 import view_helper from '../src/haml/helper';
-import path from 'path';
+import path        from 'path';
 
 module.exports = {
   dest: dest_dir,
@@ -16,50 +17,55 @@ module.exports = {
   src_base: src_base_dir,
 
   clean: {
-    src_base: '.',
     build: {
-      src: dest_base_dir + '/*'
+      src: [ dest_base_dir ]
     },
     tmp: {
-      src: tmp_dir + '/build/*'
+      src: [ tmp_dir + '/build' ]
     }
   },
 
   copy: {
-    compiled: {
-      src: [
-        tmp_dir + '/build/**/*'
-      ],
-      dest: dest_dir
-    },
-    assets: {
-      src_base: src_base_dir,
-      src: [
-        src_dir + '/icons/**/*',
-        src_dir + '/images/**/*',
-        src_dir + '/manifest.json'
-      ],
-      dest: dest_dir
-    }
+    src: [
+      tmp_dir + '/build/**/*'
+    ],
+    dest: dest_dir
+  },
+
+  assets: {
+    src_base: src_base_dir,
+    src: [
+      src_dir + '/icons/**/*.png',
+      src_dir + '/images/**/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}',
+      src_dir + '/manifest.json'
+    ],
+    dest: tmp_dir + '/build',
+    watch_options: [
+      src_dir + '/icons',
+      src_dir + '/images',
+      src_dir + '/manifest.json',
+      '--ignoreDotFiles',
+      '--ignoreUnreadable'
+    ].join(' ')
   },
 
   html: {
     helper: view_helper,
     src: src_dir + '/haml/**/!(_|.)*.haml',
     dest: tmp_dir + '/build/html/',
-    watch_options: [src_dir, '/haml/', ' --ignoreDotFiles=true'].join('')
+    watch_options: [src_dir, '/haml/', ' --ignoreDotFiles'].join('')
   },
 
   css: {
     src: src_dir + '/scss/**/!(_|.)*.scss',
     dest: tmp_dir + '/build/css/',
-    watch_options: [src_dir, '/scss/', ' --ignoreDotFiles=true'].join('')
+    watch_options: [src_dir, '/scss/', ' --ignoreDotFiles'].join('')
   },
 
   js: {
     src: src_dir + '/jsx/**/!(_|.)*.jsx',
     dest: tmp_dir + '/build/js/',
-    watch_options: [src_dir, '/jsx/', ' --ignoreDotFiles=true'].join(''),
+    watch_options: [src_dir, '/jsx/', ' --ignoreDotFiles'].join(''),
     src_ext: '.jsx',
     dest_ext: '.js',
     suffix: '.bundle'
