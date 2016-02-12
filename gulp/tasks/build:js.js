@@ -6,9 +6,7 @@ import co           from 'co';
 import through      from 'through2';
 import source       from 'vinyl-source-stream';
 import buffer       from 'vinyl-buffer';
-import browserify   from 'browserify';
-import babelify     from 'babelify';
-import uglifyify    from 'uglifyify';
+import browserify   from 'browserify'; // transform config in package.json
 import sourcemaps   from 'gulp-sourcemaps';
 import * as handler from '../handler';
 import conf         from '../config';
@@ -31,13 +29,11 @@ gulp.task('build:js', function() {
           .pipe(sourcemaps.init({ loadMaps: true }))
           .pipe(sourcemaps.write('./'))
           .pipe(gulp.dest(config.dest))
-          //.pipe(handler.success({ title: 'Gulp Build JS' }))
           .on('end', resolve);
 
         browserify({
           entries: [uri],
-          debug: true,
-          transform: [babelify, uglifyify]
+          debug: true
         })
           .bundle()
           .on('error', handler.error)

@@ -4,7 +4,6 @@ const dest_dir = dest_base_dir + '/release';
 const src_dir = src_base_dir;
 const tmp_dir = './tmp';
 
-import _           from 'lodash';
 import view_helper from '../src/haml/helper';
 import path        from 'path';
 
