@@ -1,0 +1,30 @@
+{
+  "name": "better-eight-tools",
+  "description": "Better Eight (8card.net) Tools: Eightをもっと使いやすく。名刺データを「Gmail CSV」「vCard（iPhone, Outlook等）」形式でダウンロード",
+  "main": "app/index.js",
+  "authors": [
+    "Noriaki Uchiyama"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chrome",
+    "extension",
+    "eight",
+    "namecard"
+  ],
+  "homepage": "https://github.com/noriaki/better-eight-tools",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "spec"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
+  }
+}

@@ -7,29 +7,18 @@
   "description": "Eightをもっと使いやすく。名刺データを「Gmail CSV」「vCard（iPhone, Outlook等）」形式でダウンロード",
 
   "icons": {
-    "16": "app/icons/icon16.png",
-    "48": "app/icons/icon48.png",
-    "128": "app/icons/icon128.png"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
 
   "page_action": {
     "default_icon": {
-      "19": "app/icons/icon19.png",
-      "38": "app/icons/icon38.png"
+      "19": "icons/icon19.png",
+      "38": "icons/icon38.png"
     },
     "default_title": "Click to open Better Eight Tools",
-    "default_popup": "app/views/popup.html"
-  },
-
-  "background": {
-    "scripts": [
-      "app/js/libs/jquery/jquery-2.1.3.min.js",
-      "app/js/libs/google/analytics.js",
-      "app/js/controllers/check-confirm.js",
-      "app/js/controllers/check-premium.js",
-      "app/js/background/init.js"
-    ],
-    "presistent": false
+    "default_popup": "html/popup.html"
   },
 
   "content_scripts": [
@@ -41,10 +30,7 @@
       ],
       "exclude_matches": [],
       "css": [],
-      "js": [
-        "app/js/libs/jquery/jquery-2.1.3.min.js",
-        "app/js/content_scripts/init.js"
-      ]
+      "js": [ "js/content_scripts.js" ]
     }
   ],
 
