@@ -3,6 +3,7 @@ const src_base_dir = './src';
 const dest_dir = dest_base_dir + '/release';
 const src_dir = src_base_dir;
 const tmp_dir = './tmp';
+const bower_dir = './bower_components';
 
 import view_helper from '../src/haml/helper';
 import path        from 'path';
@@ -48,26 +49,49 @@ module.exports = {
     ].join(' ')
   },
 
+  fonts: {
+    src: [
+      bower_dir + '/bootstrap-sass/assets/fonts/bootstrap/*'
+    ],
+    dest: tmp_dir + '/build/css/fonts'
+  },
+
   html: {
     helper: view_helper,
     src: src_dir + '/haml/**/!(_|.)*.haml',
     dest: tmp_dir + '/build/html/',
-    watch_options: [src_dir, '/haml/', ' --ignoreDotFiles'].join('')
+    watch_options: [
+      src_dir + '/haml/',
+      '--ignoreDotFiles',
+      '--wait=0.5'
+    ].join(' ')
   },
 
   css: {
     src: src_dir + '/scss/**/!(_|.)*.scss',
     dest: tmp_dir + '/build/css/',
-    watch_options: [src_dir, '/scss/', ' --ignoreDotFiles'].join('')
+    suffix: '.bundle',
+    libs: [
+      bower_dir + '/bootstrap-sass/assets/stylesheets/'
+    ],
+    watch_options: [
+      src_dir + '/scss/',
+      '--ignoreDotFiles',
+      '--wait=0.5'
+    ].join(' ')
   },
 
   js: {
     src: src_dir + '/jsx/**/!(_|.)*.jsx',
     dest: tmp_dir + '/build/js/',
-    watch_options: [src_dir, '/jsx/', ' --ignoreDotFiles'].join(''),
     src_ext: '.jsx',
     dest_ext: '.js',
-    suffix: '.bundle'
+    suffix: '.bundle',
+    watch_options: [
+      src_dir + '/jsx/',
+      '--ignoreDotFiles',
+      '--wait=0.5'
+    ].join(' ')
   },
 
   lint: {

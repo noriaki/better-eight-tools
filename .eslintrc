@@ -8,6 +8,9 @@
   "ecmaFeatures": {
     "modules": true
   },
+  "globals": {
+    "chrome": true
+  },
   "extends": "eslint:recommended",
   "rules": {
     "strict": [2, "function"],

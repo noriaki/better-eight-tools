@@ -2,6 +2,7 @@ import gulp       from 'gulp';
 import plumber    from 'gulp-plumber';
 import sass       from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
+import rename     from 'gulp-rename';
 import conf       from '../config';
 
 gulp.task('build:css', function() {
@@ -10,8 +11,10 @@ gulp.task('build:css', function() {
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'expanded'
+      outputStyle: 'compressed',
+      includePaths: config.libs
     }))
+    .pipe(rename({ suffix: config.suffix }))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.dest));
 });
