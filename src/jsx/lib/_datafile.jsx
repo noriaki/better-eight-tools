@@ -1,5 +1,3 @@
-/* global chrome */
-
 import jQuery from 'jquery';
 
 jQuery(function($) {
