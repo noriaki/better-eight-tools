@@ -10,9 +10,9 @@ gulp.task('build:html', function() {
     .pipe(plumber())
     .pipe(haml({
       compilerOpts: {
-  locals: {
-    helper: config.helper
-  }
+        locals: {
+          helper: config.helper
+        }
       }
     }))
     .pipe(prettify())
