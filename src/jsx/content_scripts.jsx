@@ -1,8 +1,8 @@
-/* global chrome */
+import jQuery from 'jquery';
 
 jQuery(function($) {
 
-  //console.info('content_script init');
+  console.info('content_script init');
   chrome.runtime.sendMessage({ "stat": { "showicon": true } }, $.noop);
   chrome.runtime.sendMessage({ "stat": { "setup": true } }, $.noop);
 

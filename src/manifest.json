@@ -21,6 +21,11 @@
     "default_popup": "html/popup.html"
   },
 
+  "background": {
+    "scripts": [ "js/background.bundle.js" ],
+    "presistent": false
+  },
+
   "content_scripts": [
     {
       "matches": [
@@ -30,7 +35,7 @@
       ],
       "exclude_matches": [],
       "css": [],
-      "js": [ "js/content_scripts.js" ]
+      "js": [ "js/content_scripts.bundle.js" ]
     }
   ],
 
