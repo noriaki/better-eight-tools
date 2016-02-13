@@ -5,8 +5,8 @@ const src_dir = src_base_dir;
 const tmp_dir = './tmp';
 const bower_dir = './bower_components';
 
-import view_helper from '../src/haml/helper';
 import path        from 'path';
+import haml_helper from './haml_helper';
 
 module.exports = {
   dest: dest_dir,
@@ -57,7 +57,7 @@ module.exports = {
   },
 
   html: {
-    helper: view_helper,
+    helper: haml_helper,
     src: src_dir + '/haml/**/!(_|.)*.haml',
     dest: tmp_dir + '/build/html/',
     watch_options: [
