@@ -1,0 +1,12 @@
+/* -*- mode: json; -*- */
+{
+  "env": {
+    "jasmine": true,
+    "mocha":   true
+  },
+  "plugins": [
+    "jasmine"
+  ],
+  "rules": {
+  }
+}
