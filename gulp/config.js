@@ -103,7 +103,7 @@ module.exports = {
   },
 
   pack: {
-    src: dest_dir + '/*',
+    src: dest_dir + '/**',
     filename: path.basename(dest_dir) + '.zip',
     dest: dest_base_dir
   }
