@@ -1,10 +1,12 @@
 $icon-font-path: "fonts/";
 @import 'bootstrap';
+@import url("https://fonts.googleapis.com/earlyaccess/notosansjapanese.css");
 
 /* base.css */
 
 body {
   min-width: 540px;
+  font-family: "Noto Sans Japanese","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .close, .close:focus, .close:hover, .close:active { color: #000; }

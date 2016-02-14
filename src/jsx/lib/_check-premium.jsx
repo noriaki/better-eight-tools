@@ -16,7 +16,7 @@ jQuery.extend(PremiumChecker.prototype, {
 
       // status: 1==active, 4==expired
       contract.status === 1 ? d.resolve() : d.reject();
-    });
+    }).fail(d.reject);
     return d.promise();
   },
   get: function() { return jQuery.get(this.check_point_uri); }
