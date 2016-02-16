@@ -1,3 +1,4 @@
+import 'babel-register';
 import Jasmine from 'jasmine';
 import SpecReporter from 'jasmine-spec-reporter';
 
