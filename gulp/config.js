@@ -1,9 +1,9 @@
 const dest_base_dir = './build';
-const src_base_dir = './src';
-const dest_dir = dest_base_dir + '/release';
-const src_dir = src_base_dir;
-const tmp_dir = './tmp';
-const bower_dir = './bower_components';
+const src_base_dir  = './src';
+const dest_dir      = dest_base_dir + '/release';
+const src_dir       = src_base_dir;
+const tmp_dir       = './tmp';
+const bower_dir     = './bower_components';
 
 import path        from 'path';
 import haml_helper from './haml_helper';
