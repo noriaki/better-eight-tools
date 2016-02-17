@@ -13,7 +13,10 @@ function error() {
 function success(options) {
   options.onLast = true;
   options.subtitle = 'success';
-  return notify(options);
+  return function() {
+    notify(options);
+    this.emit('end');
+  };
 }
 
 export { error, success };

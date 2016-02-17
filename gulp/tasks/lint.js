@@ -6,13 +6,12 @@ import debug        from 'gulp-debug';
 
 gulp.task('lint', () => {
   const config = conf.lint;
-  console.log(handler);
-  gulp.src(config.src)
-    .pipe(debug())
+  return gulp.src(config.src)
+    .pipe(debug({ title: 'lint-file:' }))
     .pipe(eslint({ useEslintrc: true }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
     .on('error', handler.error)
-    //.pipe(handler.success({ title: 'Gulp ESLint' }))
+  //.on('end', handler.success({ title: 'Gulp ESLint' }))
   ;
 });

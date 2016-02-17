@@ -6,7 +6,7 @@ import conf     from '../config';
 
 gulp.task('build:html', function() {
   const config = conf.html;
-  gulp.src(config.src)
+  return gulp.src(config.src)
     .pipe(plumber())
     .pipe(haml({
       compilerOpts: {

@@ -4,8 +4,7 @@ import conf from '../config';
 
 gulp.task('pack', () => {
   const config = conf.pack;
-
-  gulp.src(config.src)
+  return gulp.src(config.src)
     .pipe(zip(config.filename))
     .pipe(gulp.dest(config.dest));
 });

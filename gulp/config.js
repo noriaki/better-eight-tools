@@ -5,6 +5,7 @@ const src_dir       = src_base_dir;
 const tmp_dir       = './tmp';
 const bower_dir     = './bower_components';
 
+import 'babel-register';
 import path        from 'path';
 import haml_helper from './haml_helper';
 

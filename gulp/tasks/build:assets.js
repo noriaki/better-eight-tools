@@ -7,9 +7,9 @@ function copy(config) {
 }
 
 gulp.task('build:fonts', () => {
-  copy(conf.fonts);
+  return copy(conf.fonts);
 });
 
 gulp.task('build:assets', ['build:fonts'], () => {
-  copy(conf.assets);
+  return copy(conf.assets);
 });
