@@ -1,22 +1,31 @@
 //import through from 'through2';
-import notify  from 'gulp-notify';
+import path     from 'path';
+import notify   from 'gulp-notify';
+import notifier from 'node-notifier';
 
-function error() {
-  const args = Array.prototype.slice.call(arguments);
-  notify.onError({
-    title: 'Compile Error',
-    message: '<%= error.message %>'
-  }).apply(this, args);
-  this.emit('end');
-}
+export default class Handler {
+  constructor() {
+    this.e = null;
+  }
 
-function success(options) {
-  options.onLast = true;
-  options.subtitle = 'success';
-  return function() {
-    notify(options);
+  error() { // should call bind(error context)
+    const args = Array.prototype.slice.call(arguments);
+    notify.onError({
+      title: 'Compile Error',
+      message: '<%= error.message %>'
+    }).apply(this, args);
     this.emit('end');
-  };
-}
+  }
 
-export { error, success };
+  success(options) {
+    if(this.e === null) {
+      const default_options = {
+        "title": 'success', "message": 'task',
+        "onLast": true, "subtitle": 'success',
+        "icon": path.resolve('./node_modules/gulp-notify/assets/gulp.png')
+      };
+      options = Object.assign({}, default_options, options);
+      notifier.notify(options, (e,r) => { console.log(e,r); });
+    }
+  }
+}
