@@ -1,14 +1,14 @@
-import ga from './lib/_google-analytics.jsx';
-import jQuery from 'jquery';
-import utils from './lib/_utils.jsx';
+import ga         from './lib/_google-analytics.jsx';
+import jQuery     from 'jquery';
+import utils      from './lib/_utils.jsx';
 import DataLoader from './lib/_data-loader.jsx';
-import Card from './lib/_card.jsx';
-import CardSet from './lib/_card-set.jsx';
-import CSV from 'csv';
-require('jquery-dateFormat');
-require('jquery-color');
-require('jquery-highlight-effect');
-require('bootstrap-tooltip');
+import Card       from './lib/_card.jsx';
+import CardSet    from './lib/_card-set.jsx';
+import CSV        from 'csv';
+import 'jquery-dateFormat';
+import 'jquery-color';
+import 'jquery-highlight-effect';
+import 'bootstrap-tooltip';
 
 jQuery(function($) {
   ga('set', 'page', 'premium.html');

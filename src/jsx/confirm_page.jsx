@@ -1,6 +1,5 @@
 import jQuery from 'jquery';
 import ga from './lib/_google-analytics.jsx';
-import ConfirmChecker from './lib/_check-confirm.jsx';
 
 jQuery(function($) {
   ga('set', 'page', 'confirm.html');
@@ -8,11 +7,8 @@ jQuery(function($) {
 
   //console.info("confirm.html");
   $('#confirm').on('click', function() {
-    (new ConfirmChecker()).set(true);
     //console.info('set confirm and reinitialize');
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, { "stat": { "confirm": true } }, $.noop);
-    });
+    chrome.runtime.sendMessage("confirmation/agree", $.noop);
 
     ga('send', 'event', 'confirmation', 'confirm');
 
@@ -24,8 +20,8 @@ jQuery(function($) {
   $('#cancel').on('click', function() {
     //console.info('click cancel');
     ga('send', 'event', 'confirmation', 'cancel');
-
     window.close();
+    chrome.runtime.sendMessage("confirmation/reject", $.noop);
     return false;
   });
 });

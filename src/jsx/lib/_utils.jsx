@@ -1,4 +1,14 @@
 module.exports = {
+  map: function(array, iteratee) {
+    let index = -1;
+    const length = array.length,
+          result = Array(length);
+
+    while (++index < length) {
+      result[index] = iteratee(array[index], index, array);
+    }
+    return result;
+  },
   datestamp: function(date) {
     date = date || new Date();
     return [
