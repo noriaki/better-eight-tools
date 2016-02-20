@@ -20,8 +20,8 @@ jQuery(function($) {
   $('#cancel').on('click', function() {
     //console.info('click cancel');
     ga('send', 'event', 'confirmation', 'cancel');
-    window.close();
     chrome.runtime.sendMessage("confirmation/reject", $.noop);
+    window.close();
     return false;
   });
 });
